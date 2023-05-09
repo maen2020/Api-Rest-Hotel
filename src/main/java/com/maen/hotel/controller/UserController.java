@@ -3,6 +3,7 @@ package com.maen.hotel.controller;
 import com.maen.hotel.persistence.entity.UserEntity;
 import com.maen.hotel.service.UserService;
 import com.maen.hotel.service.dto.UserInDTO;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserEntity> saveUser(@RequestBody UserInDTO userInDTO){
+    public ResponseEntity<UserEntity> saveUser(@Valid @RequestBody UserInDTO userInDTO){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(userService.saveUser(userInDTO));
     }

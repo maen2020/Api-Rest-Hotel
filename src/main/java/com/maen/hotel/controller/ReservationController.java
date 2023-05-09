@@ -2,6 +2,7 @@ package com.maen.hotel.controller;
 
 import com.maen.hotel.persistence.entity.ReservationEntity;
 import com.maen.hotel.service.ReservationService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class ReservationController {
     }
 
     @PostMapping
-    public ReservationEntity saveReservation(@RequestBody ReservationEntity reservationEntity){
+    public ReservationEntity saveReservation(@Valid @RequestBody ReservationEntity reservationEntity){
         return this.reservationService.saveReservation(reservationEntity);
     }
 

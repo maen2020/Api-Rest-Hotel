@@ -5,8 +5,6 @@ import com.maen.hotel.persistence.entity.UserEntity;
 import com.maen.hotel.persistence.repository.IUserRepository;
 import com.maen.hotel.service.dto.UserInDTO;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

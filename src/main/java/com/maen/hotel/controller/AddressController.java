@@ -2,6 +2,7 @@ package com.maen.hotel.controller;
 
 import com.maen.hotel.persistence.entity.AddressEntity;
 import com.maen.hotel.service.AddressService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class AddressController {
     }
 
     @PostMapping
-    public AddressEntity saveAddress(@RequestBody AddressEntity addressEntity){
+    public AddressEntity saveAddress(@Valid @RequestBody AddressEntity addressEntity){
         return this.addressService.saveAddrees(addressEntity);
     }
 
