@@ -1,7 +1,9 @@
 package com.maen.hotel.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +23,7 @@ public class AddressEntity {
     @NotBlank(message = "City is required.")
     private String city;
 
-    @Column(name = "zipcode")
+    @Column(name = "zip_code")
     @NotBlank(message = "Zip code is required.")
     private String zipCode;
 
@@ -31,6 +33,12 @@ public class AddressEntity {
     @NotBlank(message = "State is required.")
     private String state;
 
-    @Column(name = "userid")
+    @Column(name = "user_id")
+    @NotNull(message = "Id is required.")
     private Integer userId;
+
+    @OneToOne
+    @JsonBackReference
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private UserEntity userEntities;
 }
